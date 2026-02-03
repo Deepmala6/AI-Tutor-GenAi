@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tutor Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 AI Tutor Generator</h1>
+            <p>Generate educational content with AI-powered review and refinement</p>
+        </header>
+
+        <main>
+            <!-- Input Section -->
+            <section class="input-section">
+                <h2>Generate Content</h2>
+                <form id="inputForm">
+                    <div class="form-group">
+                        <label for="grade">Grade Level</label>
+                        <select id="grade" required>
+                            <option value="">Select a grade</option>
+                            <option value="4">Grade 4</option>
+                            <option value="6">Grade 6</option>
+                            <option value="8">Grade 8</option>
+                            <option value="10">Grade 10</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="topic">Topic</label>
+                        <input type="text" id="topic" placeholder="e.g., Types of angles" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Generate Content</button>
+                </form>
+            </section>
+
+            <!-- Results Section -->
+            <section id="resultsSection" class="results-section hidden">
+                <div class="loading hidden" id="loading">
+                    <div class="spinner"></div>
+                    <p>Processing your request...</p>
+                </div>
+
+                <div id="resultsContainer"></div>
+                
+                <!-- Refine Button (appears always to view advanced content) -->
+                <div id="refineButtonContainer" class="refine-button-container hidden">
+                    <button id="refineButton" class="btn btn-success">🚀 View Advanced Level Content</button>
+                </div>
+            </section>
+
+            <!-- Error Section -->
+            <section id="errorSection" class="error-section hidden">
+                <p id="errorMessage"></p>
+            </section>
+        </main>
+
+        <footer>
+            <p>AI Tutor Generator © 2026 | Deepmala Bhakta</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
